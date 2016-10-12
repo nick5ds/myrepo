@@ -11,18 +11,20 @@ header={"Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzY29wZXM
 
 def getData(url,header):
     response=requests.get(url,headers=header)
-    data=response.text
-    jData=json.loads(data)
+    jData=response.json()
     return jData
 
 
 def checkRate(startTime,Count):
     current_time=datetime.now()
+    print("current time interval "+str((current_time-startTime).total_seconds())+" current count "+ str(Count))
     if int((current_time-startTime).total_seconds())<=60 and Count>120:
         wait=60-int((current_time-start_time).total_seconds())
         print( "sleeping for " + str(wait) +" seconds")
         sleep(wait)
         start_time=datetime.now()
+        return True
+    elif int((current_time-startTime).total_seconds())>=60:
         return True
     else:
         return False
@@ -76,7 +78,6 @@ def explodeTags(dataArray,tagIndex):
             exprow.append(tag['id'])
             exprow.append(tag['name'])
             explode.append(exprow)
-            pprint(exprow)
     return explode
 def writeToCsv(flatFile,file,colNames):
 
@@ -93,11 +94,11 @@ def getConversationList(lastUpdate=None):
     else:
         url='https://api2.frontapp.com/conversations/?q[after]='+str(lastUpdate)
     print(url)
-    conversations=getData(url,header) 
+    conversations=getPaginatedData(url,header) 
     return conversations
 
 
-def getEventList(lastUpdate=None,filePath):
+def getEventList(filePath,lastUpdate=None):
 #defaut variables
     start_time=datetime.now()
     if lastUpdate is None:
@@ -124,13 +125,14 @@ def getEventList(lastUpdate=None,filePath):
 #prints and ends on last page
     
 if __name__ == "__main__":
-    cnv=getConversationList(1473622549)
+    cnv=getConversationList(1476124276)
+   # cnv=getData("https://api2.frontapp.com/conversations/?q[after]=1476124276&page=83",header)
 #    pprint(cnv)
     keys=[['recipient','handle'],['assignee','email'],['id'],['subject'],['last_message','created_at'],['tags']]
-    flat=flattenData(cnv,keys,"_results")
+    flat=flattenData(cnv,keys)
 #    pprint(flat)
     exploded=explodeTags(flat,5)
-    col_names=["from_email","to_email","conversation_id","subject","last_message_timestamp",,"tag_name","tag_id"]
-    writeToCsv(exploded,"cnvlist.csv",col_names)
+    col_names=["from_email","to_email","conversation_id","subject","last_message_timestamp","tag_name","tag_id"]
+    writeToCsv(exploded,"tags_backpop.csv",col_names)
     #pprint(jData)
 #    getDataFromFront(None,"all_Events.csv")
