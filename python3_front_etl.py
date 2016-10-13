@@ -4,135 +4,131 @@ from pprint import pprint
 import unicodecsv as csv
 from datetime import datetime
 from time import sleep
-header={"Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzY29wZXMiOlsiKiJdLCJpc3MiOiJmcm9udCIsInN1YiI6ImVhdHNhIn0.ODkHPWeXk5nCve7JNGcVVITtQoRaZdl8ussK4vh7WlY","Accepti":"application/json" }
+header = {
+    "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzY29wZXMiOlsiKiJdLCJpc3MiOiJmcm9udCIsInN1YiI6ImVhdHNhIn0.ODkHPWeXk5nCve7JNGcVVITtQoRaZdl8ussK4vh7WlY",
+    "Accepti": "application/json"}
 
 
-
-
-def getData(url,header):
-    response=requests.get(url,headers=header)
-    jData=response.json()
+def get_data(url, header):
+    response = requests.get(url, headers=header)
+    jData = response.json()
     return jData
 
 
-def checkRate(startTime,Count):
-    current_time=datetime.now()
-    print("current time interval "+str((current_time-startTime).total_seconds())+" current count "+ str(Count))
-    if int((current_time-startTime).total_seconds())<=60 and Count>120:
-        wait=60-int((current_time-start_time).total_seconds())
-        print( "sleeping for " + str(wait) +" seconds")
+def check_rate(start_time, req_count):
+    """ checks the rate at which the API is being called to deal with Front's limits"""
+    current_time = datetime.now()
+    print("current time interval " + str((current_time -
+                                          start_time).total_seconds()) + " current count " + str(req_count))
+    if int((current_time - start_time).total_seconds()) <= 60 and req_count > 120:
+        wait = 60 - int((current_time - start_time).total_seconds())
+        print("sleeping for " + str(wait) + " seconds")
         sleep(wait)
-        start_time=datetime.now()
+        start_time = datetime.now()
         return True
-    elif int((current_time-startTime).total_seconds())>=60:
+    elif int((current_time - start_time).total_seconds()) >= 60:
         return True
     else:
         return False
 
-def getPaginatedData(url,header):
-    results=[]
-    start_time=datetime.now()
-    count=0
+
+def get_paginated_data(url, header):
+    """  to make this generalized, the key for the results array along with the 
+    location of the next page url would need to be variables """
+    results = []
+    start_time = datetime.now()
+    count = 0
     while True:
-        print(datetime.strftime(datetime.now(),"%Y-%m-%d %H:%M:%S")+" "+url)
-        data=getData(url,header)            
-        results+=data['_results']
-        url=data["_pagination"]["next"]
-        if url is None:
+        print(
+            datetime.strftime(
+                datetime.now(),
+                "%Y-%m-%d %H:%M:%S") +
+            " " +
+            url)
+        data = get_data(url, header)
+        results += data['_results']
+        url = data["_pagination"]["next"]
+        if not url:
             break
-        count+=1
-        did_pause=checkRate(start_time,count)
-        if did_pause==True:
-            count=0
-            start_time=datetime.now()
+        count += 1
+        did_pause = check_rate(start_time, count)
+        if did_pause:
+            count = 0
+            start_time = datetime.now()
     return results
 
-def getFromDict(dataDict, mapList):
-        for i in mapList:
-            dataDict=dataDict[i]
-        return dataDict
 
-def flattenData(apiData,keys,listKey=None):
-        flat=[]
-        if listKey is not None:
-            results=apiData[listKey]
-        else:
-            results=apiData
-        for result in results:
-            row=[]
-            for key in keys:
-                try:
-                    row.append(getFromDict(result,key))
-                except:
-                    row.append('NULL')
-            flat.append(row)
-        return flat
+def get_from_dict(data_dict, map_list):
+    """returns elements from a nested dictionary using a list of keys"""
+    if not isinstance(map_list,list):
+        raise TypeError(str(map_list) +" is not a list")
+    for i in map_list:
+        data_dict = data_dict[i]
+    return data_dict
 
-def explodeTags(dataArray,tagIndex):
-    explode=[]
-    for arr in dataArray:
-        tags=arr.pop(tagIndex)
-        for tag in tags:
-            exprow=[]
-            exprow += arr
-            exprow.append(tag['id'])
-            exprow.append(tag['name'])
-            explode.append(exprow)
+def flatten_data(api_data, keys, list_key=None):
+    """ Traverses  a list of nested dictionaries and returns a list of key values.
+        
+        keys should be a list of lists. Each element within the lists represents a level within the dictionary.
+        i.e. [[recipient,handle]] returns the value of handle which is nested within recipient
+
+        if the list that that needs to be flatted is nested somewhere within a dictionaru
+        pass in the list of keys to reach the element"""
+    flat = []
+    if list_key:
+        results = get_from_dict(api_data,list_key)
+    else:
+        results = api_data
+    for result in results:
+        row = []
+        for key in keys:
+            try:
+                row.append(get_from_dict(result, key))
+            except (KeyError,TypeError):
+                row.append('NULL')
+        flat.append(row)
+    return flat
+
+def explode_tags(data_array, tag_index):
+    """ this is front specific and explodes the list of dictionries that 
+        contains the tags in each conversation"""
+    explode = []
+    for arr in data_array:
+        tags = arr.pop(tag_index)
+        if tags: 
+            for tag in tags:
+                exprow = []
+                exprow += arr
+                exprow.append(tag['id'])
+                exprow.append(tag['name'])
+                explode.append(exprow)
     return explode
-def writeToCsv(flatFile,file,colNames):
 
-     with open(file,"wb") as a:
-        writer=csv.writer(a)
-        writer.writerow(colNames)
-        for row in flatFile:
-            if row[2] is not None:
+def create_primary_key(flat_list,index_list):
+    """ concatenates columns in order to create a primary key"""
+    for row in flat_list:
+        pkey=''.join([str(row[i]) for i in index_list])
+        row.append(pkey)
+    return flat_list
+
+def write_to_csv(flat_file, file_, colNames,pkey):
+    """ wirtes data to csv if the pkey column in not null"""
+    with open(file_, "wb") as a:
+        writer = csv.writer(a)
+        writer.writerow(col_names)
+        for row in flat_file:
+            if row[pkey]:
                 writer.writerow(row)
 
-def getConversationList(lastUpdate=None):
-    if lastUpdate is None:
-        url='https://api2.frontapp.com/conversations?'
-    else:
-        url='https://api2.frontapp.com/conversations/?q[after]='+str(lastUpdate)
-    print(url)
-    conversations=getPaginatedData(url,header) 
-    return conversations
 
 
-def getEventList(filePath,lastUpdate=None):
-#defaut variables
-    start_time=datetime.now()
-    if lastUpdate is None:
-        url='https://api2.frontapp.com/events?'
-    else:
-        url='https://api2.frontapp.com/events?&q[after]='+str(lastUpdate)
-    count=1
-    flattened=[]
-    col_names=['from','to','emitted_at','type','event_id','reciepient_email','conversation_id','event_type','meta_id','meta_name','message_blurb']
-    keys_needed=[['from']
-                        ,['to']
-                        ,['emitted_at']
-                        ,['type']
-                        ,['id']
-                        ,['conversation','recipient','handle']
-                        ,['conversation','id']
-                        ,['target','_meta','type']
-                        ,['target','data','id']
-                        ,['target','data','name']
-                        ,['target','data','blurb']]
-#loops through the pages
-    events=getPaginatedData(url,header)
-    return events
-#prints and ends on last page
-    
 if __name__ == "__main__":
-    cnv=getConversationList(1476124276)
-   # cnv=getData("https://api2.frontapp.com/conversations/?q[after]=1476124276&page=83",header)
-#    pprint(cnv)
-    keys=[['recipient','handle'],['assignee','email'],['id'],['subject'],['last_message','created_at'],['tags']]
-    flat=flattenData(cnv,keys)
-#    pprint(flat)
-    exploded=explodeTags(flat,5)
-    col_names=["from_email","to_email","conversation_id","subject","last_message_timestamp","tag_name","tag_id"]
-    writeToCsv(exploded,"tags_backpop.csv",col_names)
-    #pprint(jData)
-#    getDataFromFront(None,"all_Events.csv")
+    cnv = get_paginated_data('https://api2.frontapp.com/conversations?',header)
+    keys = [['recipient', 'handle'], ['assignee', 'email'], ['id'],
+            ['subject'], ['last_message', 'created_at'], ['tags']]
+    flat = flatten_data(cnv, keys)
+    exploded = explode_tags(flat, 5)
+    final=create_primary_key(exploded,[2,5])
+    col_names = ["from_email", "to_email", "conversation_id",
+                 "subject", "last_message_timestamp", "tag_id", "tag_name","pkey"]
+    write_to_csv(final, "tags.csv", col_names,7)
