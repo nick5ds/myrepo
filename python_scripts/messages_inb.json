@@ -1,0 +1,51 @@
+2016-12-09 12:00:19 https://api2.frontapp.com/events?&q[types][]=outbound&q[types][]=inbound,&q[types][]=out_reply
+current time interval 1.520542 current count 1
+2016-12-09 12:00:20 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=2
+current time interval 2.650336 current count 2
+2016-12-09 12:00:21 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=3
+current time interval 4.367745 current count 3
+2016-12-09 12:00:23 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=4
+current time interval 5.533232 current count 4
+2016-12-09 12:00:24 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=5
+current time interval 7.611549 current count 5
+2016-12-09 12:00:26 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=6
+current time interval 9.531245 current count 6
+2016-12-09 12:00:28 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=7
+current time interval 11.535252 current count 7
+2016-12-09 12:00:30 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=8
+current time interval 13.494187 current count 8
+2016-12-09 12:00:32 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=9
+current time interval 15.406455 current count 9
+2016-12-09 12:00:34 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=10
+current time interval 19.527697 current count 10
+2016-12-09 12:00:38 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=11
+current time interval 22.626804 current count 11
+2016-12-09 12:00:41 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=12
+current time interval 24.377822 current count 12
+2016-12-09 12:00:43 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=13
+current time interval 26.486579 current count 13
+2016-12-09 12:00:45 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=14
+current time interval 28.508755 current count 14
+2016-12-09 12:00:47 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=15
+current time interval 30.341767 current count 15
+2016-12-09 12:00:49 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=16
+current time interval 32.752128 current count 16
+2016-12-09 12:00:51 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=17
+current time interval 34.286785 current count 17
+2016-12-09 12:00:53 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=18
+current time interval 36.62729 current count 18
+2016-12-09 12:00:55 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=19
+current time interval 39.643426 current count 19
+2016-12-09 12:00:58 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=20
+current time interval 41.412503 current count 20
+2016-12-09 12:01:00 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=21
+current time interval 43.570725 current count 21
+2016-12-09 12:01:02 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=22
+current time interval 45.662009 current count 22
+2016-12-09 12:01:04 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=23
+current time interval 47.768733 current count 23
+2016-12-09 12:01:06 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=24
+current time interval 50.571408 current count 24
+2016-12-09 12:01:09 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=25
+current time interval 52.720535 current count 25
+2016-12-09 12:01:11 https://api2.frontapp.com/events?q[types][0]=outbound&q[types][1]=inbound,&q[types][2]=out_reply&page=26

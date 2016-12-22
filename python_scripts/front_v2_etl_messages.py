@@ -132,23 +132,26 @@ def write_to_csv(flat_file, file_, col_names,pkey):
 
 
 if __name__ == "__main__":
-    cnv_url='https://api2.frontapp.com/conversations?'
+    cnv_url='https://api2.frontapp.com/events?&q[types][]=archive&q[types][]=assign&q[types][]=inbound&q[types][]=outbound&q[types][]=out_reply'
+    #cnv_url='https://api2.frontapp.com/events?&q[types][]=out_reply'
     keys = [
-            ['recipient', 'handle'], ['assignee', 'email'], ['id'],
-            ['subject'], ['created_at'], ['tags'],['metadata']
+            ['conversation','id'],['conversation','recipient','handle'],['target','data','author','email'] ,['target','data','id'],
+             [ 'emitted_at'], ['target','data','text'],['type'],['conversation','subject'],['source','data','email']
             ]
     tag_index=5
-    make_pkey_indexes=[2,5]
+    make_pkey_indexes=[0,3]
     col_names = [
-                "from_email", "to_email", "conversation_id",
-                "subject", "last_message_timestamp", "tag_id", 
-                "tag_name","pkey","meta"
+                 "conversation_id",'in_email',"out_email",'message_id',
+                "created_at", 'text', 'type','subject','archived_and_assigned_email','pkey' 
+                
                 ]
     
-    write_to_file_directory="/Users/nikhil/data_work/tags.csv"
-    pkey_index=7
+    write_to_file_directory="/Users/nikhil/data_work/messages.csv"
+    pkey_index=9
     cnv = get_data(cnv_url,header)
-    flat = flatten_data(cnv, keys,["_results"])
-    exploded = explode_tags(flat, tag_index)
+    pprint(cnv)
+    flat = flatten_data(cnv, keys,['_results'])
+    #exploded = explode_tags(flat, tag_index)
+    exploded=flat
     final=create_primary_key(exploded,make_pkey_indexes)
     write_to_csv(final, write_to_file_directory, col_names,pkey_index)
