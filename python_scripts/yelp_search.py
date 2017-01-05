@@ -22,7 +22,8 @@ client_secret="A1CzqjwIJLllMtbHESfvsGFIPJxqVSjHAZviyKVZfGYycpIGl31G7Csrm8ngC94o"
 params={
 "location":"285 Madison Ave, New York, NY 10017",
 "radius":483,
-"limit":40
+"limit":40,
+"categories":"coffee"
 }
 url='https://api.yelp.com/v3/businesses/search'
 #search=oauth.get('https://api.yelp.com/v3/businesses/search',params=params)
@@ -36,11 +37,14 @@ def yelp_search(ull,client_id,client_secret,params):
     fetched=0
     results=[]
     total=None
-    while not total or fetched<total:
+    while not total or (fetched<total and fetched<1000):
+        if fetched>0:
+            params['offset']=fetched
         search=oauth.get(url,params=params)
         content=json.loads(search.content)
         try:
             total=content['total']
+            print total
         except:
             pprint(content)
         results=results+content['businesses']
@@ -95,7 +99,7 @@ header=['name','address line 1','address line 2', 'address line 3','city','state
 if __name__ == "__main__":
     for address in addresses:
         address_short=address.split(',')[0].replace(" ","")
-        outfile="/Users/nikhil/Documents/businesess/"+address_short+".csv"
+        outfile="/Users/nikhil/Documents/businesses_restaurant/"+address_short+".csv"
         print "pulling data for " + outfile
         params['location']=address
         businesses=yelp_search(url,client_id,client_secret,params)

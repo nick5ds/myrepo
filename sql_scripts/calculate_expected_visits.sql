@@ -1,4 +1,4 @@
-create or replace function calulate_expected_visits(prob_list varchar(2000),transition_mult float(8),max_visits integer)
+create or replace function calculate_expected_visits(prob_list varchar(2000),transition_mult float(8),max_visits integer)
   returns float(8)
 stable
 as $$
@@ -25,13 +25,13 @@ $$ language plpythonu;
 
 
 select aw,possible_visits,grouping,total_users,total_visits
-,calulate_expected_visits(trans,1.0,0::int) as expected_visits
-,calulate_expected_visits(trans,0.9,0::int) as "expected_visitsx0.9"
-,calulate_expected_visits(trans,0.95,0::int) as "expected_visitsx0.95"
-,calulate_expected_visits(trans,1.01,0::int) as "expected_visitsx1.01"
-,calulate_expected_visits(trans,1.05,0::int) as "expected_visitsx1.05"
-,calulate_expected_visits(trans,1.1,0::int) as "expected_visitsx1.1"
-,calulate_expected_visits(trans,1.2,0::int) as "expected_visitsx1.2"
+,calculate_expected_visits(trans,1.0,0::int) as expected_visits
+,calculate_expected_visits(trans,0.9,0::int) as "expected_visitsx0.9"
+,calculate_expected_visits(trans,0.95,0::int) as "expected_visitsx0.95"
+,calculate_expected_visits(trans,1.01,0::int) as "expected_visitsx1.01"
+,calculate_expected_visits(trans,1.05,0::int) as "expected_visitsx1.05"
+,calculate_expected_visits(trans,1.1,0::int) as "expected_visitsx1.1"
+,calculate_expected_visits(trans,1.2,0::int) as "expected_visitsx1.2"
 --,trans
  from
 (select  aw
