@@ -24,9 +24,9 @@ group by 1,2,3,4,5,6,7,8,9
 
 ) 
 
-select ua.user_account,d.*,store_address,is_internal_user,is_test_order,store_locality,is_comped,is_refunded,promo_redemption_amount,num_items,num_total_bowls,num_chefs_bowl,num_sides,num_beverages from
+select ua.user_account,is_test_user,is_employee_user,d.*,store_address,is_internal_user,is_test_order,store_locality,is_comped,is_refunded,promo_redemption_amount,num_items,num_total_bowls,num_chefs_bowl,num_sides,num_beverages from
 (select
-line_item_id,order_id,order_created_at,item_id,item_name,user_id,modifier_id,modifier_name,sum(num_mods) from
+line_item_id,order_id,order_created_at,item_id,item_name,user_id,modifier_id,modifier_name,sum(num_mods) as num_mods from
 
 (select * from mods
 
