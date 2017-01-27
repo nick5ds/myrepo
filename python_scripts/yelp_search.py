@@ -23,7 +23,7 @@ params={
 "location":"285 Madison Ave, New York, NY 10017",
 "radius":483,
 "limit":40,
-"categories":"coffee"
+"categories":"food"
 }
 url='https://api.yelp.com/v3/businesses/search'
 #search=oauth.get('https://api.yelp.com/v3/businesses/search',params=params)

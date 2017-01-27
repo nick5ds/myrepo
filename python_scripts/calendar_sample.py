@@ -22,26 +22,29 @@ import sys
 sys.path.insert(1, '/Library/Python/2.7/site-packages')
 from oauth2client import client
 from googleapiclient import sample_tools
-
+from pprint import pprint
 
 def main(argv):
     # Authenticate and construct service.
     service, flags = sample_tools.init(
         argv, 'calendar', 'v3', __doc__, __file__,
         scope='https://www.googleapis.com/auth/calendar.readonly')
-    
+    list_out=[]
     try:
         page_token = None
         while True:
             events = service.events().list(calendarId='eatsa.com_baequihu4jrcoo2l328efku5mk@group.calendar.google.com', pageToken=page_token).execute()
             for event in events['items']:
-                print event['summary']
-            page_token = events.get('nextPageToken')
+                event_list=[]
+                event_list.append(event['summary'])
+                list_out.append(event_list)
+                pprint(list_out) 
+                page_token = events.get('nextPageToken')
             if not page_token:
-                break
+                return list_out            
     except client.AccessTokenRefreshError:
         print('The credentials have been revoked or expired, please re-run'
               'the application to re-authorize.')
 
 if __name__ == '__main__':
-    main(sys.argv)
+   print  main(sys.argv)
