@@ -3,7 +3,7 @@ import json
 from pprint import pprint
 import csv
 #url='https://us9.api.mailchimp.com/3.0/reports/b3239a9fcc/sent-to'
-auth=('anystring','57902f215f2ab12b541a1cb2ae9f725c-us9')
+auth=('anystring','')
 #payload={'fields':'members.id,members.email_address,members.status','count':10}
 payload={'count':10}
 #payload={'count':100}
