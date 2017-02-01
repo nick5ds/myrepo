@@ -11,10 +11,7 @@ from collections import Counter
 import psycopg2
 
 def generate_ndb_data(end_date,interval):
-    FIVETRAN_HOST ='eatsa-warehouse-fivetran.c5xyqeaknls5.us-east-1.redshift.amazonaws.com'
-    FIVETRAN_USER = 'awsuser'
-    FIVETRAN_PASSWORD ='CxoqbgkkqtWXILseCR0qeGWn3s72iFDPML8T8rMwFbpjyzfraOBBxtihPkDZq6C3'
-    FIVETRAN_DATABASE = 'fivetran'
+
     conn = psycopg2.connect(
         dbname=FIVETRAN_DATABASE,
         host=FIVETRAN_HOST,
