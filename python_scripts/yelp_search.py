@@ -10,8 +10,12 @@ from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import BackendApplicationClient
 from front_v2_etl_campaigns import get_from_dict,flatten_data,write_to_csv
 
-client_id="LtsNT-6doO-eV-aTZRVFfA"
-client_secret="A1CzqjwIJLllMtbHESfvsGFIPJxqVSjHAZviyKVZfGYycpIGl31G7Csrm8ngC94o"
+with open('../config.json') as config:
+    conf=json.load(config)
+yelp_id=conf['yelp']
+
+client_id=yelp['client_id'
+client_secret=yelp['client_secret']
 #client=BackendApplicationClient(client_id=client_id)
 #oauth=OAuth2Session(client=client)
 #token=oauth.fetch_token(token_url='https://api.yelp.com/oauth2/token',client_id=client_id,client_secret=client_secret)

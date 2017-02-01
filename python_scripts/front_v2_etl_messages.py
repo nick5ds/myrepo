@@ -4,9 +4,6 @@ from pprint import pprint
 import unicodecsv as csv
 from datetime import datetime
 from time import sleep
-header = {
-    "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzY29wZXMiOlsiKiJdLCJpc3MiOiJmcm9udCIsInN1YiI6ImVhdHNhIn0.ODkHPWeXk5nCve7JNGcVVITtQoRaZdl8ussK4vh7WlY",
-    "Accepti": "application/json"}
 
 
 def get_data(url, header):
@@ -132,6 +129,10 @@ def write_to_csv(flat_file, file_, col_names,pkey):
 
 
 if __name__ == "__main__":
+    with open('../config.json') as config:
+        conf=json.load(config)
+    frontapp=conf['frontapp']
+    header=frontapp['header']
     cnv_url='https://api2.frontapp.com/events?&q[types][]=archive&q[types][]=assign&q[types][]=inbound&q[types][]=outbound&q[types][]=out_reply'
     #cnv_url='https://api2.frontapp.com/events?&q[types][]=out_reply'
     keys = [
