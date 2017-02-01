@@ -5,7 +5,7 @@ import unicodecsv as csv
 from datetime import datetime
 from time import sleep
 header = {
-    "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzY29wZXMiOlsiKiJdLCJpc3MiOiJmcm9udCIsInN1YiI6ImVhdHNhIn0.ODkHPWeXk5nCve7JNGcVVITtQoRaZdl8ussK4vh7WlY",
+    "Authorization": ",
     "Accepti": "application/json"}
 class apiObject:
     def __init__(self,**kwargs):
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     front=apiObject(
     url='https://api2.frontapp.com/conversations?'
     ,header={
-    "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzY29wZXMiOlsiKiJdLCJpc3MiOiJmcm9udCIsInN1YiI6ImVhdHNhIn0.ODkHPWeXk5nCve7JNGcVVITtQoRaZdl8ussK4vh7WlY",
+    "Authorization": "",
     "Accepti": "application/json"}
     ,keys= [
             ['recipient', 'handle'], ['assignee', 'email'], ['id'],
