@@ -10,11 +10,7 @@ from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import BackendApplicationClient
 from front_v2_etl_campaigns import get_from_dict,flatten_data,write_to_csv
 
-client_id="830381940942-ev8kiij88q6i1vfuj3i84mp8voufh7al.apps.googleusercontent.com"
-client_secret="UuJEeihOFUzDGJwWORldx_eI"
-redirect_uri="http://localhost"
-authorization_base_url = "https://accounts.google.com/o/oauth2/v2/auth"
-token_url = "https://www.googleapis.com/oauth2/v4/token"
+
 scope=['https://www.googleapis.com/auth/calendar.readonly']
 #client=BackendApplicationClient(client_id=client_id)
 #oauth=OAuth2Session(client=client)
