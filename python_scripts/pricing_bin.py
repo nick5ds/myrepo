@@ -23,4 +23,4 @@ bowl_distribution=[0.139 , 0.188, 0.142, 0.103, 0.427]
 avg_price=8.44
 
 
-print price_array(bowl_distribution,1,8.44)
+print price_array(bowl_distribution,1,8.08)

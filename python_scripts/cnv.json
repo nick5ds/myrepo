@@ -13,23 +13,13 @@
         }, 
         {
             "_links": {
-                "self": "https://api2.frontapp.com/tags/tag_2pgn", 
+                "self": "https://api2.frontapp.com/tags/tag_2pge", 
                 "related": {
-                    "conversations": "https://api2.frontapp.com/tags/tag_2pgn/conversations"
+                    "conversations": "https://api2.frontapp.com/tags/tag_2pge/conversations"
                 }
             }, 
-            "id": "tag_2pgn", 
-            "name": "Speed"
-        }, 
-        {
-            "_links": {
-                "self": "https://api2.frontapp.com/tags/tag_2rso", 
-                "related": {
-                    "conversations": "https://api2.frontapp.com/tags/tag_2rso/conversations"
-                }
-            }, 
-            "id": "tag_2rso", 
-            "name": "Experience"
+            "id": "tag_2pge", 
+            "name": "Food"
         }, 
         {
             "_links": {
@@ -43,27 +33,37 @@
         }, 
         {
             "_links": {
-                "self": "https://api2.frontapp.com/tags/tag_376f", 
+                "self": "https://api2.frontapp.com/tags/tag_375h", 
                 "related": {
-                    "conversations": "https://api2.frontapp.com/tags/tag_376f/conversations"
+                    "conversations": "https://api2.frontapp.com/tags/tag_375h/conversations"
                 }
             }, 
-            "id": "tag_376f", 
-            "name": "285 Madison Ave. STE 101"
+            "id": "tag_375h", 
+            "name": "DC - 1627 K St NW"
         }, 
         {
             "_links": {
-                "self": "https://api2.frontapp.com/tags/tag_36fk", 
+                "self": "https://api2.frontapp.com/tags/tag_2pgj", 
                 "related": {
-                    "conversations": "https://api2.frontapp.com/tags/tag_36fk/conversations"
+                    "conversations": "https://api2.frontapp.com/tags/tag_2pgj/conversations"
                 }
             }, 
-            "id": "tag_36fk", 
-            "name": "P3"
+            "id": "tag_2pgj", 
+            "name": "Taste/Flavor"
+        }, 
+        {
+            "_links": {
+                "self": "https://api2.frontapp.com/tags/tag_2pgi", 
+                "related": {
+                    "conversations": "https://api2.frontapp.com/tags/tag_2pgi/conversations"
+                }
+            }, 
+            "id": "tag_2pgi", 
+            "name": "Ingredient"
         }
     ], 
     "last_message": {
-        "body": "<span id=\"docs-internal-guid-5fa9e78a-f413-e2b2-d438-d409c1487cee\"><span style=\"font-size: 13.333333333333332px; font-family: Arial; background-color: transparent\">Hi Katherine,</span></span><div style=\"font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px;\"><br /></div><div style=\"font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px;\"><span style=\"font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', sans-serif; font-size: 13px\">We are so happy to hear that you enjoyed eatsa! Feel free to let others know about your experience by sharing on our</span>&nbsp;<font color=\"#0088cc\"><a href=\"https://www.yelp.com/biz/eatsa-new-york-2\" target=\"_blank\">yelp page!</a></font></div><div style=\"font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px;\"><br /></div><div style=\"font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px;\">Also, if you haven't done so already, download the eatsa app for <a href=\"https://itunes.apple.com/us/app/eatsa/id1015802513\" target=\"_blank\" style=\"font-size: 13px;\">iPhone</a> or <a href=\"https://play.google.com/store/apps/details?id=com.eatsa.app\" target=\"_blank\" style=\"font-size: 13px;\">Android</a>. This will allow you to save your customizations, preorder your food as well as set up a pick up time making your day that much more efficient.</div><div style=\"font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px;\"><br /></div><div style=\"font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px;\">Let us know if you have any questions about customizing or the app and hope to see you again soon!</div><br><div class=\"front-signature fa-uid_d8e15c48b5acb7601ca517aa520ce502\"><div style=\"width: 100%!important; margin: 0; padding: 0; background-color:#f9f7f6;\"> <div style=\"padding: 10px; line-height: 18px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;\"> <table cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;border-spacing:0;border:none !important\" width=\"100%\"> <tbody><tr style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\"> <td style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;vertical-align:top;padding:20px 0 20px\">Sincerely,<br style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\" />The eatsa Team<br style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\" /><a href=\"https://eatsa.com/\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;color:#ee3300;text-decoration:none\" target=\"_blank\">eatsa.com</a> </td></tr></tbody></table> <div style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;width:100%;clear:both;padding:20px\"> <table style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;border-spacing:0;border:none !important\" width=\"100%\"> <tbody><tr style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\"> <td align=\"center\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;vertical-align:top;color:#666;font-size:12px\"> <a href=\"https://instagram.com/eatsarestaurant\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;color:#ee3300;text-decoration:none;color:#666;font-size:12px;color:#adadad;font-size:25px;display:inline-block;margin:0 5px 25px 5px\" target=\"_blank\"> <img alt=\"Instagram\" src=\"https://res.cloudinary.com/kww/image/upload/v1435721394/email/instagram_2x.png\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;max-width:100%;width: 34px;\" /></a> <a href=\"https://twitter.com/eatsa\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;color:#ee3300;text-decoration:none;color:#666;font-size:12px;color:#adadad;font-size:25px;display:inline-block;margin:0 5px 25px 5px\" target=\"_blank\"><img alt=\"Twitter\" src=\"https://res.cloudinary.com/kww/image/upload/v1435721394/email/twitter_2x.png\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;max-width:100%;width: 34px;\" /></a> <a href=\"https://www.facebook.com/eatsa\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;color:#ee3300;text-decoration:none;color:#666;font-size:12px;color:#adadad;font-size:25px;display:inline-block;margin:0 5px 25px 5px\" target=\"_blank\"><img alt=\"Facebook\" src=\"https://res.cloudinary.com/kww/image/upload/v1435721394/email/facebook_2x.png\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;max-width:100%;width: 34px;\" /> </a> </td></tr><tr style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\"> <td style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;vertical-align:top;padding:0 0 20px;text-align:center;color:#666;font-size:12px;color:#b5b5b5;padding-top:15px;line-height:150%\">\u00a9 2015 Eatsa, Inc.</td></tr></tbody></table> </div></div></div></div><br><blockquote type=\"cite\" class=\"front-blockquote\">On Thu, Dec 22, 2016 at 07:01 am,  &lt;<a href=\"mailto:ktornese@gmail.com\" target=\"_blank\">ktornese@gmail.com</a>&gt; Katherine Tornese wrote:<br /><br /></blockquote>", 
+        "body": "<!--[if mso]><style type=\"text/css\">.default-style-7cc6bbda06dba870a9a7 { color: #212121;font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;font-size: 13px; }</style><![endif]--><div style=\"color: #212121;font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;font-size: 13px;\" class=\"default-style-7cc6bbda06dba870a9a7\"><div><span style=\"font-family: Arial; font-size: 13px;\">Hi Tatyana,</span><br /></div><div><br /></div><div><span style=\"font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', sans-serif; font-size: 13px;\">We are so happy to hear that you enjoyed eatsa! Feel free to let others know about your experience by sharing on our</span><a href=\"https://www.yelp.com/biz/eatsa-washington-2\" target=\"_blank\">&nbsp;yelp page!</a></div><div><br /></div><div>Also, if you haven't done so already, download the eatsa app for <a href=\"https://itunes.apple.com/us/app/eatsa/id1015802513\" target=\"_blank\">iPhone</a> or <a href=\"https://play.google.com/store/apps/details?id=com.eatsa.app\" target=\"_blank\">Android</a>. This will allow you to save your customizations, preorder your food as well as set up a pick up time making your day that much more efficient.</div><div><br /></div><div>Let me know if you have any questions about customizing or the app and hope to see you again soon!</div></div><br><div class=\"front-signature fa-uid_e6718d63e696fdcb860001e4ee8cbb1d\"><div style=\"width: 100%!important; margin: 0; padding: 0; background-color:#f9f7f6;\"> <div style=\"padding: 10px; line-height: 18px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;\"> <table cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;border-spacing:0;border:none !important\" width=\"100%\"> <tbody><tr style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\"> <td style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;vertical-align:top;padding:20px 0 20px\">Sincerely,<br style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\" />The eatsa Team<br style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\" /><a href=\"https://eatsa.com/\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;color:#ee3300;text-decoration:none\" target=\"_blank\">eatsa.com</a> </td></tr></tbody></table> <div style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;width:100%;clear:both;padding:20px\"> <table style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;border-spacing:0;border:none !important\" width=\"100%\"> <tbody><tr style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\"> <td align=\"center\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;vertical-align:top;color:#666;font-size:12px\"> <a href=\"https://instagram.com/eatsarestaurant\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;color:#ee3300;text-decoration:none;color:#666;font-size:12px;color:#adadad;font-size:25px;display:inline-block;margin:0 5px 25px 5px\" target=\"_blank\"> <img alt=\"Instagram\" src=\"https://res.cloudinary.com/kww/image/upload/v1435721394/email/instagram_2x.png\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;max-width:100%;width: 34px;\" /></a> <a href=\"https://twitter.com/eatsa\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;color:#ee3300;text-decoration:none;color:#666;font-size:12px;color:#adadad;font-size:25px;display:inline-block;margin:0 5px 25px 5px\" target=\"_blank\"><img alt=\"Twitter\" src=\"https://res.cloudinary.com/kww/image/upload/v1435721394/email/twitter_2x.png\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;max-width:100%;width: 34px;\" /></a> <a href=\"https://www.facebook.com/eatsa\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;color:#ee3300;text-decoration:none;color:#666;font-size:12px;color:#adadad;font-size:25px;display:inline-block;margin:0 5px 25px 5px\" target=\"_blank\"><img alt=\"Facebook\" src=\"https://res.cloudinary.com/kww/image/upload/v1435721394/email/facebook_2x.png\" style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;max-width:100%;width: 34px;\" /> </a> </td></tr><tr style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222\"> <td style=\"margin:0;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;box-sizing:border-box;font-size:14px;color:#222;vertical-align:top;padding:0 0 20px;text-align:center;color:#666;font-size:12px;color:#b5b5b5;padding-top:15px;line-height:150%\">\u00a9 2015 eatsa, Inc.</td></tr></tbody></table> </div></div></div></div><br><blockquote type=\"cite\" class=\"front-blockquote\">On Fri, Feb 17, 2017 at 11:37 am,  &lt;<a href=\"mailto:tanya.platonova@gmail.com\" target=\"_blank\">tanya.platonova@gmail.com</a>&gt; Tatyana Platonova wrote:<br /><br /></blockquote>", 
         "attachments": [], 
         "recipients": [
             {
@@ -76,67 +76,82 @@
                 }
             }, 
             {
-                "handle": "ktornese@gmail.com", 
+                "handle": "tanya.platonova@gmail.com", 
                 "role": "to", 
                 "_links": {
                     "related": {
-                        "contact": "https://api2.frontapp.com/contacts/ctc_15r652"
+                        "contact": "https://api2.frontapp.com/contacts/ctc_1314b7"
                     }
                 }
             }
         ], 
         "author": {
-            "username": "holly", 
-            "first_name": "Holly", 
-            "last_name": "Laughland", 
-            "email": "hollyl@eatsa.com", 
+            "username": "kevin", 
+            "first_name": "Kevin", 
+            "last_name": "Yoshimoto", 
+            "email": "keviny@eatsa.com", 
             "_links": {
-                "self": "https://api2.frontapp.com/teammates/tea_10yy", 
+                "self": "https://api2.frontapp.com/teammates/tea_tmr", 
                 "related": {
-                    "conversations": "https://api2.frontapp.com/teammates/tea_10yy/conversations", 
-                    "inboxes": "https://api2.frontapp.com/teammates/tea_10yy/inboxes"
+                    "conversations": "https://api2.frontapp.com/teammates/tea_tmr/conversations", 
+                    "inboxes": "https://api2.frontapp.com/teammates/tea_tmr/inboxes"
                 }
             }, 
             "is_available": true, 
             "is_admin": true, 
-            "id": "tea_10yy"
+            "id": "tea_tmr"
         }, 
-        "text": "Hi Katherine,\n\nWe are so happy to hear that you enjoyed eatsa! Feel free to let others know about your experience by sharing on our yelp page!\n\nAlso, if you haven't done so already, download the eatsa app for iPhone or Android. This will allow you to save your customizations, preorder your food as well as set up a pick up time making your day that much more efficient.\n\nLet us know if you have any questions about customizing or the app and hope to see you again soon!\n", 
-        "created_at": 1482429210.176, 
+        "text": "Hi Tatyana,\n\nWe are so happy to hear that you enjoyed eatsa! Feel free to let others know about your experience by sharing on our yelp page!\n\nAlso, if you haven't done so already, download the eatsa app for iPhone or Android. This will allow you to save your customizations, preorder your food as well as set up a pick up time making your day that much more efficient.\n\nLet me know if you have any questions about customizing or the app and hope to see you again soon!\n", 
+        "created_at": 1487360760.828, 
         "_links": {
-            "self": "https://api2.frontapp.com/messages/msg_5c3w5n", 
+            "self": "https://api2.frontapp.com/messages/msg_64keqk", 
             "related": {
-                "conversation": "https://api2.frontapp.com/conversations/cnv_38to5p", 
-                "message_replied_to": "https://api2.frontapp.com/messages/msg_5c0jp0"
+                "conversation": "https://api2.frontapp.com/conversations/cnv_3pty2l", 
+                "message_replied_to": "https://api2.frontapp.com/messages/msg_64k9br"
             }
         }, 
         "is_inbound": false, 
         "type": "email", 
-        "id": "msg_5c3w5n", 
-        "blurb": "Hi Katherine, We are so happy to hear that you enjoyed eatsa! Feel free to let others know about your experience by sharing on our yelp page! Also, if you haven't done so already, download the eatsa", 
+        "id": "msg_64keqk", 
+        "blurb": "Hi Tatyana, We are so happy to hear that you enjoyed eatsa! Feel free to let others know about your experience by sharing on our yelp page! Also, if you haven't done so already, download the eatsa a", 
         "metadata": {}
     }, 
-    "created_at": 1482418894, 
-    "assignee": null, 
+    "created_at": 1487360254.896, 
+    "assignee": {
+        "username": "kevin", 
+        "first_name": "Kevin", 
+        "last_name": "Yoshimoto", 
+        "email": "keviny@eatsa.com", 
+        "_links": {
+            "self": "https://api2.frontapp.com/teammates/tea_tmr", 
+            "related": {
+                "conversations": "https://api2.frontapp.com/teammates/tea_tmr/conversations", 
+                "inboxes": "https://api2.frontapp.com/teammates/tea_tmr/inboxes"
+            }
+        }, 
+        "is_available": true, 
+        "is_admin": true, 
+        "id": "tea_tmr"
+    }, 
     "_links": {
-        "self": "https://api2.frontapp.com/conversations/cnv_38to5p", 
+        "self": "https://api2.frontapp.com/conversations/cnv_3pty2l", 
         "related": {
-            "messages": "https://api2.frontapp.com/conversations/cnv_38to5p/messages", 
-            "inboxes": "https://api2.frontapp.com/conversations/cnv_38to5p/inboxes", 
-            "followers": "https://api2.frontapp.com/conversations/cnv_38to5p/followers", 
-            "events": "https://api2.frontapp.com/conversations/cnv_38to5p/events", 
-            "comments": "https://api2.frontapp.com/conversations/cnv_38to5p/comments"
+            "messages": "https://api2.frontapp.com/conversations/cnv_3pty2l/messages", 
+            "inboxes": "https://api2.frontapp.com/conversations/cnv_3pty2l/inboxes", 
+            "followers": "https://api2.frontapp.com/conversations/cnv_3pty2l/followers", 
+            "events": "https://api2.frontapp.com/conversations/cnv_3pty2l/events", 
+            "comments": "https://api2.frontapp.com/conversations/cnv_3pty2l/comments"
         }
     }, 
     "recipient": {
-        "handle": "ktornese@gmail.com", 
+        "handle": "tanya.platonova@gmail.com", 
         "role": "to", 
         "_links": {
             "related": {
-                "contact": "https://api2.frontapp.com/contacts/ctc_15r652"
+                "contact": "https://api2.frontapp.com/contacts/ctc_1314b7"
             }
         }
     }, 
-    "id": "cnv_38to5p", 
+    "id": "cnv_3pty2l", 
     "subject": "Re: Positive feedback"
 }

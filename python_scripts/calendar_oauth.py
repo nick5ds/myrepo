@@ -11,6 +11,17 @@ from oauthlib.oauth2 import BackendApplicationClient
 from front_v2_etl_campaigns import get_from_dict,flatten_data,write_to_csv
 
 
+<<<<<<< HEAD
+=======
+with open("../calendar.dat") as file:
+    google_auth=json.load(file)
+
+client_id=google_auth['client_id']
+client_secret=google_auth['client_secret']
+redirect_uri=google_auth['redirect_uri']
+authorization_base_url = google_auth['authorization_base_url']
+token_url = "https://www.googleapis.com/oauth2/v4/token"
+>>>>>>> changed auth
 scope=['https://www.googleapis.com/auth/calendar.readonly']
 #client=BackendApplicationClient(client_id=client_id)
 #oauth=OAuth2Session(client=client)

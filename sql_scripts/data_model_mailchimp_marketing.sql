@@ -2,12 +2,13 @@ CREATE VIEW mailchimp_blendo.v_segment_member_action
 AS 
 ( 
                 SELECT DISTINCT sm.*, 
-                                s.NAME, 
+                                s.NAME as segment_name, 
                                 ea.last_opened, 
                                 ea.first_opened, 
                                 COALESCE(ea.email_action, '0-did_not_open') AS email_action, 
                                 ea.campaign_send_time, 
-                                ea.campaign_id 
+                                ea.campaign_id ,
+                                ea.campaign_name
                 FROM            mailchimp_blendo.blendo_segment_members sm 
                 JOIN            mailchimp_blendo.blendo_segments s 
                 ON             ( 
@@ -16,7 +17,7 @@ AS
                                 ( 
                                           SELECT    COALESCE(b.id, c.campaign_id)                                    AS campaign_id,
                                                     COALESCE(c.segment_id, recipients_segment_opts_conditions_value) AS segment_id,
-                                                    COALESCE(b.settings_title, c.settings_title)                     AS campaign_title,
+                                                    COALESCE(b.settings_title, c.settings_title)                     AS campaign_name,
                                                     email_address, 
                                                     COALESCE(c.send_time, b.send_time) AS campaign_send_time,
                                                     max( 

@@ -3,7 +3,16 @@ import json
 from pprint import pprint
 import csv
 #url='https://us9.api.mailchimp.com/3.0/reports/b3239a9fcc/sent-to'
+<<<<<<< HEAD
 auth=('anystring','')
+=======
+with open('../config.json') as config:
+    conf=json.load(config)
+mailchimp=conf['mailchimp']
+
+
+auth=('anystring',mailchimp)
+>>>>>>> changed auth
 #payload={'fields':'members.id,members.email_address,members.status','count':10}
 payload={'count':10}
 #payload={'count':100}

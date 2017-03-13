@@ -11,23 +11,32 @@ from collections import Counter
 import psycopg2
 import decimal
 from pprint import pprint
+import json
 
 
-def generate_ndb_data(end_date,interval):
+
+def get_creds(file_loc='../config.json'):
+    with open(file_loc) as config:
+        conf=json.load(config)
+    redshift=conf['redshift']
+    FIVETRAN_HOST=redshift['FIVETRAN_HOST']
+    FIVETRAN_USER = redshift['FIVETRAN_USER']
+    FIVETRAN_PASSWORD = redshift['FIVETRAN_PASSWORD']
+    FIVETRAN_DATABASE = redshift['FIVETRAN_DATABASE']
+
+
+def generate_ndb_data(end_date,interval,**kwargs):
 
 #generates the base data needed for bg_nbd. Note that the interval sets the period length of the model
 
 
-    FIVETRAN_HOST =
-    FIVETRAN_USER = 
-    FIVETRAN_PASSWORD ='
-    FIVETRAN_DATABASE = 
+    
     conn = psycopg2.connect(
-        dbname=FIVETRAN_DATABASE,
-        host=FIVETRAN_HOST,
+        dbname=kwargs['FIVETRAN_DATABASE'],
+        host=kwargs['FIVETRAN_HOST'],
         port=5439,
-        user=FIVETRAN_USER,
-        password=FIVETRAN_PASSWORD
+        user=kwargs['FIVETRAN_USER'],
+        password=kwargs['FIVETRAN_PASSWORD']
     )
     conn.autocommit = True
     query="""
@@ -50,8 +59,8 @@ else 'not active' end as is_active
 
  (       select distinct activity_date as date, user_account as id,last_value(avi_6v) over (partition by user_account order by activity_date rows between unbounded preceding and unbounded following) as last_avi_6v
     from customer_identity.t_user_activity_stats
-    where first_store like '%1 Cal%'
-and    activity_date<='{0}' and activity_type!='inactive' and is_test_user=false and is_employee_user=false)
+    where first_store like '%Spear%'
+and    activity_date<='{0}' and activity_type!='inactive' and is_test_user=false and is_employee_user=false )
     
 group by 1,2 )
 
@@ -86,11 +95,11 @@ def make_elsatic_pred(row,**kwargs):
     low_price=kwargs['low_price']
     old_price=kwargs['old_price']
     high_price=kwargs['high_price']
-    max_value=20
-    bins=[0,8,15,22,28]
-    discount_size=(high_price-low_price)/(len(bins)-1)
+    max_value=kwargs['max_value']
+    bins=kwargs['bins'] 
+    discount_size=kwargs['discount_size']
      
-    bins.reverse()
+
     x=row[transactions_column]
     avi=row[avi_column]
     if avi==0:
@@ -98,12 +107,13 @@ def make_elsatic_pred(row,**kwargs):
         return new_x
     for index,value in enumerate(bins):
         if avi>float(value):
-            new_x=x*(1+((high_price-discount_size*index)/old_price-1)*elasticity) 
-                
-            if new_x>max_value:
+            
+            increase=(1+((high_price-discount_size*index)/old_price-1)*elasticity) 
+            new_x=x*increase
+            if new_x>float(max_value):
                 return max_value
-            elif new_x<0:
-                return 0
+            elif new_x<0.0:
+                return 0.0
             else: 
                 return new_x
                 
@@ -116,8 +126,8 @@ def drange(x,y,jump):
             break
         x+=decimal.Decimal(jump)
 
-def make_elastic_matrix(data,col,e_range=[-4, 0, 0.5], discount_range=[0, 5, 0.25], bowl_dist=[0.139 , 0.188, 0.142, 0.103, 0.427], avg_price=8.44):
-    #loops through a range of elasticities and discounts to create a dataset of possible values
+def make_elastic_matrix(data,col,old_price,e_range, discount_range, bowl_dist, avg_price):
+    #loops through a rangGe of elasticities and discounts to create a dataset of possible values
     final_data=data
     original_data=data
     prices=min_max_price(discount_range,bowl_dist,avg_price)
@@ -131,10 +141,14 @@ def make_elastic_matrix(data,col,e_range=[-4, 0, 0.5], discount_range=[0, 5, 0.2
             data['high_price']=hp
             data['low_price']=lp
             data['discount_size']=d
+            #import pdb; pdb.set_trace()
             data['elastic purchase']=data.apply(make_elsatic_pred
                     ,avi_column='last_avi_6v',transactions_column=col
-                    ,elasticity=e,low_price=lp,old_price=6.95,high_price=hp,axis=1)
-            final_data=pd.concat([final_data,data],axis=0)
+                    ,elasticity=e,low_price=lp,old_price=old_price,high_price=hp,axis=1,bins=[28,22,15,8,0],max_value=20,discount_size=d)
+
+#            final_data=pd.concat([final_data,data],axis=0)
+            file_name="../projections_low_price/"+str(d)+str(hp)+str(lp)+str(e)+".csv"
+            data.to_csv(file_name,index=False,header=False)
             data=original_data
     return final_data
 
@@ -157,15 +171,24 @@ def min_max_price(discount_range, bowl_distribution, avg_price):
     return final
 
 if __name__ == "__main__":
-    discount_range=[1,1,1]
+    with open('../config.json') as config:
+        conf=json.load(config)
+    redshift=conf['redshift']
+    FIVETRAN_HOST=redshift['FIVETRAN_HOST']
+    FIVETRAN_USER = redshift['FIVETRAN_USER']
+    FIVETRAN_PASSWORD = redshift['FIVETRAN_PASSWORD']
+    FIVETRAN_DATABASE = redshift['FIVETRAN_DATABASE']
+    discount_range=[0,3,0.25]
     bowl_distribution=[0.139 , 0.188, 0.142, 0.103, 0.427]
-    avg_price=8.44
-    elastic_range=[-2, -2, 1]
-    data=generate_ndb_data('2016-10-01','week')
+    avg_price=6.7
+    old_price=7.85
+    elastic_range=[-4, 0, 0.1]
+    data=generate_ndb_data('2016-10-01','day',FIVETRAN_HOST=FIVETRAN_HOST,FIVETRAN_USER=FIVETRAN_USER,FIVETRAN_PASSWORD=FIVETRAN_PASSWORD,FIVETRAN_DATABASE=FIVETRAN_DATABASE)
     model=fit_nbd_model(data)
-    preds=make_preds(model,data, 4)
+    pred_data=data.query('is_active!="not active"')
+    preds=make_preds(model,pred_data, 4)
     col= preds['colname']
     elastic_test= preds['data']
     preds['data'].to_csv('../base_projection.csv',index=False)
-    elastic_matrix=make_elastic_matrix(elastic_test,col,elastic_range,discount_range)
-    elastic_matrix.to_csv('../elastic_m2.csv',index=False)
+    elastic_matrix=make_elastic_matrix(elastic_test,col,old_price,elastic_range,discount_range,bowl_distribution,avg_price)
+    elastic_matrix.to_csv('test.csv',index=False)

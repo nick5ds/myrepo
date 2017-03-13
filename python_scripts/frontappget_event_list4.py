@@ -4,7 +4,11 @@ from pprint import pprint
 import unicodecsv as csv
 from datetime import datetime
 from time import sleep
-header={"Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzY29wZXMiOlsiKiJdLCJpc3MiOiJmcm9udCIsInN1YiI6ImVhdHNhIn0.ODkHPWeXk5nCve7JNGcVVITtQoRaZdl8ussK4vh7WlY","Accepti":"application/json" }
+
+with open('../config.json') as config:
+    conf=json.load(config)
+frontapp=conf['frontapp']
+header=frontapp['header']
 
 
 

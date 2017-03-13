@@ -4,9 +4,12 @@ from pprint import pprint
 import unicodecsv as csv
 from datetime import datetime
 from time import sleep
+<<<<<<< HEAD
 header = {
     "Authorization": ",
     "Accepti": "application/json"}
+=======
+>>>>>>> changed auth
 class apiObject:
     def __init__(self,**kwargs):
         self.url=kwargs.get('url')
@@ -145,11 +148,19 @@ class apiObject:
 
 
 if __name__ == "__main__":
+    with open('../config.json') as config:
+        conf=json.load(config)
+    frontapp=conf['frontapp']
+     
     front=apiObject(
     url='https://api2.frontapp.com/conversations?'
+<<<<<<< HEAD
     ,header={
     "Authorization": "",
     "Accepti": "application/json"}
+=======
+    ,header=frontapp['header']
+>>>>>>> changed auth
     ,keys= [
             ['recipient', 'handle'], ['assignee', 'email'], ['id'],
             ['subject'], ['last_message', 'created_at'], ['tags'],['metadata']
